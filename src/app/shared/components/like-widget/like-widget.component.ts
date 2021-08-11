@@ -11,7 +11,7 @@ import { UniqueIdService } from '../../services/unique-id/unique-id.service';
 export class LikeWidgetComponent implements OnInit {
   @Output() liked = new EventEmitter<void>();
   @Input() likes = 0;
-  @Input() id = null;
+  @Input() id: string = null;
   fonts = { faThumbsUp };
 
   constructor(private uniqueIdService: UniqueIdService) {
