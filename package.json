@@ -9,6 +9,7 @@
     "test-ci": "ng test --watch=false --reporters junit --browsers ChromeHeadless,FirefoxHeadless",
     "test-firefox": "ng test --browsers Firefox",
     "test-all": "ng test --browsers Chrome,Firefox",
+    "test-coverage": "ng test --watch=false --sourceMap=true  --codeCoverage=true --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
