@@ -69,4 +69,16 @@ describe(PhotoFrameComponent.name, () => {
 
     expect(element.getAttribute('aria-label')).toBe('0: people liked');
   });
+
+  it('Should display image with src and description when bound to properties', () => {
+    const description = 'Some description';
+    const src = 'https://somesite.com/img.jpg';
+    component.src = src;
+    component.description = description;
+    fixture.detectChanges();
+    const img: HTMLImageElement = fixture.nativeElement.querySelector('img');
+
+    expect(img.getAttribute('src')).toBe(src);
+    expect(img.getAttribute('alt')).toBe(description);
+  });
 });
