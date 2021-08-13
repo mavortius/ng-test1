@@ -1,20 +1,52 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { PhotoBoardService } from './photo-board.service';
 
+const mockData = {
+  api: 'http://localhost:3000/photos',
+  data: [
+    {
+      id: 1,
+      description: 'example 1',
+      src: ''
+    },
+    {
+      id: 2,
+      description: 'example 2',
+      src: ''
+    }
+  ]
+};
+
 describe(PhotoBoardService.name, () => {
   let service: PhotoBoardService;
+  let controller: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientTestingModule],
       providers: [PhotoBoardService]
     });
     service = TestBed.inject(PhotoBoardService);
+    controller = TestBed.inject(HttpTestingController);
   });
+
+  afterEach(() => controller.verify());
 
   it('Should create service', () => {
     expect(service).toBeTruthy();
+  });
+
+  it(`#${PhotoBoardService.prototype.getPhotos.name}
+      should return photos with description in uppercase`, (done) => {
+    service.getPhotos().subscribe((photos) => {
+      expect(photos[0].description).toBe('EXAMPLE 1');
+      expect(photos[1].description).toBe('EXAMPLE 2');
+      done();
+    });
+    controller
+      .expectOne(mockData.api)
+      .flush(mockData.data);
   });
 });
