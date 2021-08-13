@@ -9,7 +9,7 @@ import { PhotoBoardService } from './photo-board.service';
   declarations: [PhotoBoardComponent],
   imports: [
     CommonModule,
-    PhotoFrameModule
+    PhotoFrameModule,
   ],
   exports: [PhotoBoardComponent],
   providers: [PhotoBoardService]

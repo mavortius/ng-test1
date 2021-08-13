@@ -1,0 +1,7 @@
+<app-photo-board *ngIf="(photos$ | async) as photos; else spinner" [photos]="photos"></app-photo-board>
+
+<ng-template #spinner>
+  <div class="spinner">
+    <fa-icon [icon]="fa.faCircleNotch" [spin]="true" size="4x" aria-busy="true"></fa-icon>
+  </div>
+</ng-template>

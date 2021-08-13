@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { PhotoListComponent } from './component/photo-list/photo-list.component';
+
+const routes: Routes = [
+  { path: 'photos', component: PhotoListComponent },
+  { path: '**', redirectTo: 'photos' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
