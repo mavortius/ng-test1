@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { PhotoListComponent } from './photo-list.component';
 import { PhotoListModule } from './photo-list.module';
 import { PhotoBoardService } from '../../shared/components/photo-board/photo-board.service';
-import { buildPhotoList } from '../../shared/components/photo-board/test/photo-list-builder';
+import { buildPhotoList } from '../../shared/components/photo-board/mock/photo-list-builder';
 
 describe(PhotoListComponent.name, () => {
   let component: PhotoListComponent;
